@@ -196,7 +196,7 @@ class TestCity_to_dict(unittest.TestCase):
             self.assertEqual(str, type(cy_dict["id"]))
             self.assertEqual(str, type(cy_dict["
             self.assertEqual(str, type(cy_dict["created_at"]))
-                  self.assertEqual(str, type(cy_dict["updated_at"]))
+            self.assertEqual(str, type(cy_dict["updated_at"]))
 
         
         def test_to_dict_output(self):

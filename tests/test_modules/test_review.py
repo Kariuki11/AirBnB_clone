@@ -149,5 +149,5 @@ class TestReview_save(unittest.TestCase):
     except FileNotFoundError:
       pass
 
-# if _name_ == "_main_":
-#   unittest.main()
+if __name__ == "__main__":
+    unittest.main()

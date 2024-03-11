@@ -49,5 +49,5 @@ attribute."""
     self.assertEqual(str, type(bm_dict["created_at"]))
     self.assertEqual(str, type(bm_dict["updated_at"]))
 
-# if _name_ == "_main_":
-  # unittest.main()
+  if __name__ == "__main__":
+    unittest.main()

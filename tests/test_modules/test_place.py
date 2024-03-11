@@ -59,14 +59,14 @@ class FileStorage:
         objdict = json.load(f)
         for key, value in objdict.items():
           self.new(eval(
-              value["class"]))  # Assumming class the names are in the format "ClassName"
+              value["class"]))  # Assuming class the names are in the format "ClassName"
     except FileNotFoundError:
       pass  # Do nothing if the file doesn't exist
 
 
 # Unittests for Place class (assuming Place is defined elsewhere)
 import unittest
-from models.place import Place  # Assumming place.py file is in models
+from models.place import Place  # Assuming place.py file is in models
 
 
 class TestPlace_save(unittest.TestCase):
@@ -170,5 +170,5 @@ class TestPlace_to_dict(unittest.TestCase):
       pl.to_dict(None)
 
 
-# if _name_ == "_main_":
-#   unittest.main()
+if __name__ == "__main__":
+    unittest.main()

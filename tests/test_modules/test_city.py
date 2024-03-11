@@ -194,7 +194,7 @@ class TestCity_to_dict(unittest.TestCase):
             cy = City()
             cy_dict = cy.to_dict()
             self.assertEqual(str, type(cy_dict["id"]))
-            self.assertEqual(str, type(cy_dict["
+            self.assertEqual(str, type(cy_dict["updated_at"]))
             self.assertEqual(str, type(cy_dict["created_at"]))
             self.assertEqual(str, type(cy_dict["updated_at"]))
 
@@ -213,17 +213,17 @@ class TestCity_to_dict(unittest.TestCase):
                 }
                 self.assertDictEqual(cy.to_dict(), tdict)
 
-              def test_contrast_to_dict_dunder_dict(self):
+        def test_contrast_to_dict_dunder_dict(self):
                 """Tests if to_dict() is different from the private _dict_ attribute."""
                 cy = City()
                 self.assertNotEqual(cy.to_dict(), cy._dict_)
 
-              def test_to_dict_with_arg(self):
+        def test_to_dict_with_arg(self):
                 """Tests if to_dict() raises TypeError when passed an argument."""
                 cy = City()
                 with self.assertRaises(TypeError):
                     cy.to_dict(None)
 
 
-              if _name_ == "_main_":
-              unittest.main()
+if __name__ == "__main__":
+    unittest.main()

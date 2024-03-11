@@ -17,7 +17,7 @@ from unittest.mock import patch
 
 class TestState_instantiation(unittest.TestCase):
   
-  """Unittests for testing instantiation of the State class."""
+  """Unittests testing instantiation of the State class."""
 
   def test_no_args_instantiates(self):
     self.assertEqual(State, type(State()))
@@ -195,5 +195,5 @@ class TestState_to_dict(unittest.TestCase):
       st.to_dict(None)
 
 
-# if _name_ == "_main_":
-#   unittest.main()
+if __name__ == "__main__":
+    unittest.main()

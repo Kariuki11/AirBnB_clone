@@ -15,9 +15,9 @@ class BaseModel:
   self: Addresses the case of the class
   *args and **kwargs: Allow passing variable numbers of arguments.
     """
-    if kwargs is not None and kwargs != {}:  # Existing object with attributes
+    if kwargs is not None and kwargs != {}: 
       self.id = kwargs.get("id")
-      if self.id is None:  # Assign ID if not already present
+      if self.id is None:  
           self.id = str(uuid.uuid4())
 
       self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
@@ -26,12 +26,12 @@ class BaseModel:
       for key, value in kwargs.items():
           if key not in ["id", "created_at", "updated_at", "_class_"]:
               setattr(self, key, value)
-    else:  # New object
+    else: 
       self.id = str(uuid.uuid4())
       self.created_at = self.updated_at = datetime.now()
-      self.id = str(uuid.uuid4())  # Generate unique ID as string
-      self.created_at = datetime.utcnow()  # Current datetime at creation
-      self.updated_at = self.created_at  # Update time initially same as creation
+      self.id = str(uuid.uuid4())  
+      self.created_at = datetime.utcnow()
+      self.updated_at = self.created_at 
 
   def _str_(self):
     """

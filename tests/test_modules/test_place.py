@@ -23,6 +23,7 @@ class FileStorage:
     def __init__(self, file_path=None):
         """Initializes the FileStorage instance.
 
+
         Args:
             file_path (str, optional): The path to the JSON file. Defaults to "file.json".
         """

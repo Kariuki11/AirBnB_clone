@@ -4,7 +4,7 @@
 import cmd
 import re
 import json
-import shlex
+import shlex import split
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -17,33 +17,33 @@ from models.review import Review
 
 def parse(arg):
   """Parse conflicts with curly braces and square brackets for elastic attribute updates."""
-  curly_braces = re.search(r"\{(.*?)\}", arg)
-  brackets = re.search(r"\[(.*?)\]", arg)
-  if curly_braces is None:
+        curly_braces = re.search(r"\{(.*?)\}", arg)
+        brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
     if brackets is None:
-      return [i.strip(",") for i in shlex.split(arg)]
+        return [i.strip(",") for i in shlex.split(arg)]
     else:
-      lexer = shlex.split(arg[:brackets.span()[0]])
-      retl = [i.strip(",") for i in lexer]
-      retl.append(brackets.group())
-      return retl
-  else:
+    lexer = shlex.split(arg[:brackets.span()[0]])
+    retl = [i.strip(",") for i in lexer]
+    retl.append(brackets.group())
+        return retl
+    else:
     lexer = shlex.split(arg[:curly_braces.span()[0]])
     retl = [i.strip(",") for i in lexer]
     retl.append(curly_braces.group())
-    return retl
+        return retl
 
 
 class HBNBCommand(cmd.Cmd):
-  """Defines the HolbertonBnB command interpreter.
+    """Defines the HolbertonBnB command interpreter.
 
   Attributes:
       prompt (str): The command prompt.
       __classes (list): List of supported class names for validation.
   """
 
-  prompt = "(hbnb) "
-  __classes = {
+    prompt = "(hbnb) "
+    __classes = {
       "BaseModel",
       "User",
       "State",
@@ -53,11 +53,11 @@ class HBNBCommand(cmd.Cmd):
       "Review"
   }
 
-  def emptyline(self):
+    def emptyline(self):
     """Do nothing after receiving a void line."""
     pass
 
-  def default(self, arg):
+    def default(self, arg):
     """Default behavior for cmd module when input is invalid"""
     argdict = {
         "all": self.do_all,
@@ -68,17 +68,17 @@ class HBNBCommand(cmd.Cmd):
     }
     match = re.search(r"\.", arg)
     if match is not None:
-      argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
-      match = re.search(r"\((.*?)\)", argl[1])
-      if match is not None:
+    argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+    match = re.search(r"\((.*?)\)", argl[1])
+    if match is not None:
         command = [argl[1][:match.span()[0]], match.group()[1:-1]]
-        if command[0] in argdict.keys():
+    if command[0] in argdict.keys():
           call = "{} {}".format(argl[0], command[1])
           return argdict[command[0]](call)
     print("* Unknown syntax: {}".format(arg))
     return False
 
-  def do_quit(self, arg):
+    def do_quit(self, arg):
     """Quit command to exit the program."""
     return True
 
@@ -116,9 +116,9 @@ class HBNBCommand(cmd.Cmd):
       print("* no instance found *")
     elif len(argl) == 1:
         print("* instance id missing *")
-    elif "{}.{}".format(argl[0], argl[1]) not in objdict:
+      elif "{}.{}".format(argl[0], argl[1]) not in objdict:
         print("* no instance found *")
-    else:
+      else:
         print(objdict["{}.{}".format(argl[0], argl[1])])
 
     def do_destroy(self, arg):
@@ -196,22 +196,23 @@ class HBNBCommand(cmd.Cmd):
           return False
      
 
-      if len(argl) == 4:
-        obj = objdict["{}.{}".format(argl[0], argl[1])]
-        if argl[2] in obj.dict.keys():
-          valtype = type(obj.dict[argl[2]])
-          obj.dict[argl[2]] = valtype(argl[3])
-        else:
-          obj.dict[argl[2]] = argl[3]
-      elif type(eval(argl[2])) == dict:
+       if len(argl) == 4:
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
+            if argl[2] in obj.class.dict.keys():
+                valtype = type(obj.class.dict[argl[2]])
+                obj.dict[argl[2]] = valtype(argl[3])
+            else:
+                obj.dict[argl[2]] = argl[3]
+        elif type(eval(argl[2])) == dict:
             obj = objdict["{}.{}".format(argl[0], argl[1])]
             for k, v in eval(argl[2]).items():
-              if k in obj.dict.keys() and type(obj.dict[k]) in {str, int, float}:
-                valtype = type(obj.dict[k])
-                obj.dict[k] = valtype(v)
-              else:
-                obj.dict[k] = v
-      storage.save()
+                if (k in obj.class.dict.keys() and
+                        type(obj.class.dict[k]) in {str, int, float}):
+                    valtype = type(obj.class.dict[k])
+                    obj.dict[k] = valtype(v)
+                else:
+                    obj.dict[k] = v
+        storage.save()
       
-          # if _name_ == '_main_':
-            # HBNBCommand().cmdloop()
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()

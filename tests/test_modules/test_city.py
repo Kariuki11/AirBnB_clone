@@ -138,7 +138,7 @@ class TestCity_save(unittest.TestCase):
     def test_save_with_arg(self):
         cy = City()
         with self.assertRaises(TypeError):
-        cy.save(None)
+            cy.save(None)
 
 
 class TestCity_to_dict(unittest.TestCase):

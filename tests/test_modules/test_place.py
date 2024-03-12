@@ -15,7 +15,7 @@ from models.place import Place
 
 
 class FileStorage:
-    """Serialize instances to JSON file and deserializes JSON file into instances."""
+    """Serialize instances to JSON and deserializes JSON into instances."""
 
     __file_path = "file.json"  # Default file path
     __objects = {}  # Dictionary to store objects
@@ -25,7 +25,7 @@ class FileStorage:
 
 
         Args:
-            file_path (str, optional): The path to the JSON file. Defaults to "file.json".
+            file_path (str, optional): The path to the JSON. Defaults to "json".
         """
         if file_path:
             self.__file_path = file_path

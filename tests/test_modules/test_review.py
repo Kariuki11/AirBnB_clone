@@ -136,6 +136,7 @@ class TestReview_save(unittest.TestCase):
         self.assertLess(second_updated_at, rv.updated_at)
 
     def test_save_with_arg(self):
+<<<<<<< HEAD
         rv = Review()
         with self.assertRaises(TypeError):
             rv.save(None)
@@ -200,3 +201,79 @@ class TestReview_to_dict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+=======
+      """Tests that save raises a TypeError when given an argument."""
+      rv = Review()
+      with self.assertRaises(TypeError):
+        rv.save(None)
+
+    @patch('models.storage.save_object')  # Mock the save_object function
+    def test_save_calls_storage_save(self, mock_save):
+      """Tests that saves the calls storage.save_object method."""
+      rv = Review()
+      rv.save()
+      mock_save.assert_called_once_with(rv)  # Verifys the mock was called with the review
+
+    def tearDownClass(cls):
+      """Removes temporary file after all tests."""
+      try:
+        os.remove("file.json")
+      except FileNotFoundError:
+        pass
+
+class TestReview_save(unittest.TestCase):
+  """Unittests for testing the save method of the Review class."""
+
+  @classmethod
+  def setUpClass(cls):
+    """Prepares a clean file for testing."""
+    try:
+      os.remove("file.json")
+    except FileNotFoundError:
+      pass
+
+  def test_one_save(self):
+    """Tests that saves updates in updated_at attribute and persists to storage."""
+    rv = Review()
+    sleep(0.05)  # Introduces a slight delay
+    first_updated_at = rv.updated_at
+    rv.save()
+    self.assertLess(first_updated_at, rv.updated_at)
+    self.assertIn(rv.id, models.storage.all().keys())  # Check if saved in the storage
+
+  def test_two_saves(self):
+    """Tests that multiple saves update updated_at and persist correctly."""
+    rv = Review()
+    sleep(0.05)
+    first_updated_at = rv.updated_at
+    rv.save()
+    second_updated_at = rv.updated_at
+    self.assertLess(first_updated_at, second_updated_at)
+    sleep(0.05)
+    rv.save()
+    self.assertLess(second_updated_at, rv.updated_at)
+    self.assertIn(rv.id, models.storage.all().keys())  # Checks existence in storage
+
+  def test_save_with_arg(self):
+    """Tests that saves and raises a TypeError when given an argument."""
+    rv = Review()
+    with self.assertRaises(TypeError):
+      rv.save(None)
+
+  @patch('models.storage.save_object')  # Mock the save_object function
+  def test_save_calls_storage_save(self, mock_save):
+    """Test that saves calls the storage.save_object methods."""
+    rv = Review()
+    rv.save()
+    mock_save.assert_called_once_with(rv)  # Verify the mock was called with the review
+
+  def tearDownClass(cls):
+    """Removes temporary file after all tests."""
+    try:
+      os.remove("file.json")
+    except FileNotFoundError:
+      pass
+
+if __name__ == "__main__":
+    unittest.main()
+>>>>>>> f82eb8279106d5d712dc7c10ea9c6a1a318d55f6

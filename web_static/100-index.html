@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/100-places.css">
+    <title>AirBnB clone</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <div class="container">
+      <section class="filters">
+        <div class="locations">
+          <h3>States</h3>
+          <h4>Alabama, Iowa...</h4>
+          <ul class="popover">
+            <li><h2>Iowa:</h2>
+              <ul>
+                <li>Page</li>
+                <li>Page2</li>
+              </ul>
+            </li>
+            <li><h2>Alabama</h2>
+              <ul>
+                <li>Alaska</li>
+                <li>Georgia</li>
+              </ul>
+            </li>
+            </ul>
+        </div>
+        <div class="amenities">
+          <h3>Amenities</h3>
+          <h4>Internet, Kitchen...</h4>
+          <ul class="popover">
+            <li>Internet</li>
+            <li>Tv</li>
+            <li>Kitchen</li>
+            <li>Iron</li>
+          </ul>
+        </div>
+        <button type="button" name="button">Search</button>
+      </section> <!-- end fiter-->
+
+      <section class="places">
+        <h1>Places</h1>
+        <article><!-- My home -->
+          <div class="article_places_header">
+            <h2>My home</h2>
+            <div class="price_by_night">$80</div>
+          </div>
+          <div class="information">
+            <div class="max_guest"> <i class='bx bx-group' ></i> 2 Guests</div>
+            <div class="number_rooms"> <i class='bx bx-bed' ></i> 1 Bedroom</div>
+            <div class="number_bathrooms"> <i class='bx bx-bath' ></i> 1 Bathroom</div>
+          </div><!-- end information -->
+          <div class="user">
+            <p><b>Owner:</b> Maria Hopkins</p>
+          </div><!-- end user -->
+          <div class="description">
+            <p>This is a lovely 1 bathroom apartament that can accommodate 2 people.
+              It locates at the center & next to subway line 1, 1 stop to People Square, 2 stops to Target, 3 stops to the Temple.</p>
+          </div><!-- end description -->
+          <div class="amenities">
+            <h2>Amenities</h2>
+            <ul>
+              <li>
+                <div class="places_amenities_pet_friendly"></div>
+                Pet friendly
+                <i class='bx bxs-dog'></i>
+            </li>
+              <li>
+                <div class="places_amenities_tv"></div>
+                Tv
+                <i class='bx bx-tv' ></i>
+            </li>
+              <li>
+                <div class="places_amenities_wifi"></div>
+                Wifi
+                <i class='bx bx-wifi' ></i>
+            </li>
+            </ul>
+          </div>
+          <div class="reviews">
+            <h2>2 Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Barbra Dykun the 27th August 2022</h3>
+                <p>Masha is a wonderful host. Thank you! 5 star!</p>
+              </li>
+              <li>
+                <h3>From Nilosh 4th August 2022</h3>
+                <p>Highly recommended!</p>
+              </li>
+            </ul>
+          </div>
+        </article><!-- end My home -->
+
+        <article>
+          <h2>Tiny house</h2>
+          <div class="price_by_night">$65</div>
+          <div class="information">
+            <div class="max_guest"> <i class='bx bx-group' ></i>  4 Guests</div>
+            <div class="number_rooms"> <i class='bx bx-bed' ></i> 2 Bedrooms</div>
+            <div class="number_bathrooms"> <i class='bx bx-bath'></i> 1 Bathroom</div>
+          </div><!-- end information -->
+          <div class="user">
+            <p><b>Owner:</b> Anne</p>
+          </div><!-- end user -->
+          <div class="description">
+            <p>Our place is a private, afffordable French Quarters. The guest house is a quaint, 400 suare ft. with a full bath, mini kitchen 
+              & livin room. The extra high cellings make the home feel more spacious. The sofa converts to bed also.
+              We have a hand made counter area that adds character to the room and a great gazzibo.</p>
+          </div><!-- end description -->
+          <div class="amenities">
+            <h2>Amenities</h2>
+            <ul>
+              <li>
+                <div class="places_amenities_pet_friendly"></div>
+                Pet friendly
+                <i class='bx bxs-cat' ></i>
+            </li>
+            </ul>
+          </div>
+          <div class="reviews">
+            <h2>2 Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Barbra Dykun the 27th August 2022</h3>
+                <p>Masha is a wonderful host. Thank you! 5 star!</p>
+              </li>
+              <li>
+                <h3>From Nilosh 4th August 2022</h3>
+                <p>Highly recommended!</p>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article>
+          <h2>A suite</h2>
+          <div class="price_by_night">$190</div>
+          <div class="information">
+            <div class="max_guest"> <i class='bx bx-group' ></i> 5 Guests</div>
+            <div class="number_rooms"> <i class='bx bx-bed' ></i> 3 Bedroom</div>
+            <div class="number_bathrooms"> <i class='bx bx-bath' ></i> 2 Bathroom</div>
+          </div><!-- end information -->
+          <div class="user">
+            <p><b>Owner:</b> Michael Lomba</p>
+          </div><!-- end user -->
+          <div class="description">
+            <p>First loft built by Holbies. It contains a decked terrace, jacuzzi, firepit, two rooms, two balconies, entrance gate, private garden, 
+              private parking, BBQ area, AC in each bedroom, technological equipment, luxury beds, and mountain views.
+              Ideal for architecture lovers, romantic dates, or having a good time.</p>
+          </div><!-- end description -->
+          <div class="amenities">
+            <h2>Amenities</h2>
+            <ul>
+              <li>
+                <div class="places_amenities_pet_friendly"></div>
+                Pet friendly
+                <i class='bx bxs-dog' ></i>
+            </li>
+              <li>
+                <div class="places_amenities_tv"></div>
+                Tv
+                <i class='bx bx-tv' ></i>
+            </li>
+              <li>
+                <div class="places_amenities_wifi"></div>
+                Wifi
+                <i class='bx bx-wifi' ></i>
+            </li>
+            </ul>
+          </div>
+          <div class="reviews">
+            <h2>2 Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Barbra Dykun the 27th August 2022</h3>
+                <p>Masha is a wonderful host. Thank you! 5 star!</p>
+              </li>
+              <li>
+                <h3>From Nilosh 4th August 2022</h3>
+                <p>Highly recommended!</p>
+              </li>
+            </ul>
+          </div>
+        </article>
+        </section> <!-- end section -->
+    </div>
+    <footer>
+      <p>Best School</p>
+    </footer>
+  </body>
+</html>
